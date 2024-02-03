@@ -44,6 +44,22 @@ def get_html(url: str, params: dict | None = None)-> str:
         # Wait for the page to load
         time.sleep(1)
 
+        # Click on the accept cookies button
+        browser.find_element_by_xpath('//*[@class="fc-button fc-cta-consent fc-primary-button"]').click()
+
+        # Click on the screen
+        browser.find_element_by_class_name("headings").click()
+        time.sleep(1)
+
+        # Prepare to scroll
+        elem = browser.find_element(By.TAG_NAME, "html")
+
+        for i in range(10):
+            elem.send_keys(Keys.END)
+
+            print(f"Scrolling {i}")
+            time.sleep(1)
+
 
         html_str = browser.page_source
 

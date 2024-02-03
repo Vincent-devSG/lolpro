@@ -48,7 +48,7 @@ def get_data_lol(url: str) -> DataFrame:
             },
             ignore_index=True,
         )
-    #print(players.to_markdown(index=False))
+    print(players.to_markdown(index=False))
 
     return players
 

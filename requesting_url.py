@@ -30,7 +30,7 @@ def get_html(url: str, params: dict | None = None)-> str:
 
     # passing the optional parameters argument to the get function
     options = webdriver.ChromeOptions()
-    #options.add_argument('--headless')
+    options.add_argument('--headless')
     #options.add_argument('--disable-gpu')  # Add this line to disable GPU acceleration, which might help with headless mode
 
     browser = webdriver.Chrome(executable_path='/opt/homebrew/bin/chromedriver', options=options)
@@ -60,9 +60,7 @@ def get_html(url: str, params: dict | None = None)-> str:
             print(f"Scrolling {i}")
             time.sleep(1)
 
-
         html_str = browser.page_source
-
 
     except TimeoutException:
         print("I give up...")

@@ -34,10 +34,10 @@ def get_data_lol(url: str) -> DataFrame:
         player_country = cols[1].find("i").get("title")
 
         # if headless off
-        player_lp = cols[3].find("div", class_="rank-long").text.strip().split()[-2] + " LP"
+        #player_lp = cols[3].find("div", class_="rank-long").text.strip().split()[-2] + " LP"
 
         # if headleass on
-        #player_lp = cols[3].find("span", class_="rank-lp").text
+        player_lp = cols[3].find("span", class_="rank-lp").text
 
         players = players._append(
             {
@@ -48,7 +48,8 @@ def get_data_lol(url: str) -> DataFrame:
             },
             ignore_index=True,
         )
-    #print(players.to_markdown(index=False))
+    print(players.to_markdown(index=False))
+    print(players.index)
 
     return players
 
